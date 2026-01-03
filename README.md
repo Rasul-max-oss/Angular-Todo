@@ -1,59 +1,204 @@
-# MyFirstApp
+# 📝 TODO List Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+Простое и красивое приложение для управления задачами, созданное на Angular с поддержкой темной темы.
 
-## Development server
+## ✨ Особенности
 
-To start a local development server, run:
+### 🎨 Дизайн и Интерфейс
+- **Современный UI/UX дизайн** с плавными анимациями
+- **Поддержка темной/светлой темы** с автоматическим сохранением
+- **Адаптивный дизайн** для всех устройств
+- **Интуитивно понятный интерфейс** с визуальными подсказками
 
+### ✅ Функционал задач
+- **Добавление новых задач** через поле ввода или Enter
+- **Редактирование существующих задач** через модальное окно
+- **Отметка выполнения задач** с помощью чекбоксов
+- **Удаление задач** одной кнопкой
+- **Автоматическое форматирование** завершенных задач
+
+### 🎯 Дополнительные возможности
+- **Фильтрация задач** (готово к реализации)
+- **Поиск по задачам** (готово к реализации)
+- **Локальное сохранение** темы оформления
+- **Быстрые клавиши** для добавления задач
+- **Анимации при взаимодействии** с элементами
+
+## 🚀 Технологии
+
+- **Angular 17+** - основной фреймворк
+- **TypeScript** - типизированный JavaScript
+- **SCSS/CSS** - стилизация с CSS переменными
+- **Reactive Forms** - управление формами
+- **LocalStorage** - сохранение настроек
+
+## 🎨 Цветовая палитра
+
+### Светлая тема
+- **Основной цвет**: `#8b5cf6` (фиолетовый)
+- **Фон**: `#f5f5f5` (светло-серый)
+- **Текст**: `#374151` (темно-серый)
+- **Акцент**: `#7c3aed` (темно-фиолетовый)
+
+### Темная тема
+- **Основной цвет**: `#6C63FF` (сине-фиолетовый)
+- **Фон**: `#252525` (темно-серый)
+- **Текст**: `#e0e0e0` (светло-серый)
+- **Вторичный фон**: `#1e1e1e` (очень темный)
+
+## 📁 Структура проекта
+src/
+├── app/
+│ ├── app.component.ts # Основная логика компонента
+│ ├── app.component.html # Шаблон компонента
+│ ├── app.component.css # Стили компонента
+│ └── app.module.ts # Модуль приложения
+├── assets/
+│ └── images/ # Изображения и иконки
+└── index.html # Точка входа
+
+text
+
+## 🛠 Установка и запуск
+
+### Предварительные требования
+- Node.js 18+ и npm
+- Angular CLI 17+
+
+### Установка
 ```bash
+# Клонирование репозитория
+git clone <repository-url>
+cd todo-list-app
+
+# Установка зависимостей
+npm install
+
+# Запуск приложения
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+# Открыть в браузере
+open http://localhost:4200
+Сборка для production
+bash
+ng build --configuration production
+🎮 Использование
+Основные действия
+Добавление задачи - введите текст в поле ввода и нажмите Enter или кнопку "+"
 
-## Code scaffolding
+Отметка выполнения - кликните по чекбоксу слева от задачи
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Редактирование - нажмите кнопку карандаша на задаче
 
-```bash
-ng generate component component-name
-```
+Удаление - нажмите кнопку корзины на задаче
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Смена темы - кликните на иконку луны/солнца в правой части
 
-```bash
-ng generate --help
-```
+Горячие клавиши
+Enter - добавить новую задачу
 
-## Building
+Escape - закрыть модальное окно
 
-To build the project run:
+Click - отметить/снять отметку с задачи
 
-```bash
-ng build
-```
+📱 Адаптивность
+Приложение корректно отображается на:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+✅ Настольных компьютерах (1280px+)
 
-## Running unit tests
+✅ Ноутбуках (1024px+)
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+✅ Планшетах (768px+)
 
-```bash
-ng test
-```
+✅ Смартфонах (375px+)
 
-## Running end-to-end tests
+🔧 Настройка темы
+Вручную через CSS
+css
+:root {
+  --accent-color: #8b5cf6;      /* Основной цвет светлой темы */
+  --bg-primary: #f5f5f5;       /* Фон светлой темы */
+  /* ... другие переменные */
+}
 
-For end-to-end (e2e) testing, run:
+.dark-theme {
+  --accent-color: #6C63FF;     /* Основной цвет темной темы */
+  --bg-primary: #252525;       /* Фон темной темы */
+  /* ... другие переменные */
+}
+Программно
+typescript
+// Включение темной темы
+toggleTheme() {
+  this.isDarkTheme = !this.isDarkTheme;
+  if (this.isDarkTheme) {
+    document.body.classList.add('dark-theme');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.body.classList.remove('dark-theme');
+    localStorage.setItem('theme', 'light');
+  }
+}
+🎯 Планы по развитию
+В ближайшем будущем
+Добавление фильтров по статусу задач
 
-```bash
-ng e2e
-```
+Реализация поиска по задачам
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Добавление категорий/тегов
 
-## Additional Resources
+Сортировка задач по дате/приоритету
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Drag & Drop для переупорядочивания
+
+В перспективе
+Бэкенд для синхронизации
+
+Авторизация пользователей
+
+Уведомления и напоминания
+
+Экспорт/импорт задач
+
+Статистика выполнения
+
+🤝 Вклад в проект
+Мы приветствуем вклад в развитие проекта!
+
+Форкните репозиторий
+
+Создайте ветку для вашей функции (git checkout -b feature/amazing-feature)
+
+Закоммитьте изменения (git commit -m 'Add amazing feature')
+
+Запушьте в ветку (git push origin feature/amazing-feature)
+
+Откройте Pull Request
+
+📝 Лицензия
+Этот проект распространяется под лицензией MIT. Смотрите файл LICENSE для подробностей.
+
+👨‍💻 Автор
+Ваше Rasul
+
+GitHub: @yourusername
+
+Email: your.email@example.com
+
+🙏 Благодарности
+Иконки от Feather Icons
+
+Шрифты от Google Fonts
+
+Вдохновение от Todoist и Microsoft To Do
+
+⭐ Если вам понравился проект, поставьте звезду на GitHub!
+
+Последнее обновление: Январь 2024
+
+text
+
+## 📝 Как запушить проект в GitHub:
+
+
+Copyright (c) 2024 Your Name
