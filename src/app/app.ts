@@ -10,8 +10,9 @@ import { ReactiveFormsModule, FormControl } from '@angular/forms';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
+
 export class App implements OnInit {
-  task_value = new FormControl('');
+  taskValue = new FormControl('');
   showEditModal = false;
   editTaskIndex: number | null = null;
   editTaskTitle = '';
@@ -52,7 +53,7 @@ export class App implements OnInit {
   }
 
   addTask() {
-    const value = this.task_value.value?.trim();
+    const value = this.taskValue.value?.trim();
     
     if (value) {
       this.tasks.push({
@@ -60,7 +61,7 @@ export class App implements OnInit {
         title: value,
         completed: false
       });
-      this.task_value.setValue('');
+      this.taskValue.setValue('');
     }
   }
 
@@ -82,4 +83,6 @@ export class App implements OnInit {
       this.closeEditModal();
     }
   }
+
+  
 }
